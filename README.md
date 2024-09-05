@@ -5,6 +5,7 @@ Formik-lib-preactice
 ## Installations
 
 1. npm install formik
+2. npm install yup
 
 ## Concepts
 

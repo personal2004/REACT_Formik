@@ -1,6 +1,6 @@
 import './index.css';
 import { useFormik } from 'formik';
-import { useState } from 'react';
+import * as Yup from 'yup';
 
 const initialValues={
     email:'',
@@ -11,23 +11,35 @@ const onSubmit=values=>{
     console.log(values)
   }
 
-const validate=values=>{
-    let errors={}
+// const validate=values=>{
+//     let errors={}
 
-    if(!values.email){
-      errors.email="Required"
-    }else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)){
-        errors.email="Email format is wrong"
-    }
+//     if(!values.email){
+//       errors.email="Required"
+//     }else if(!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)){
+//         errors.email="Email format is wrong"
+//     }
 
-    if(!values.password){
-      errors.password="Required"
-    }else if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(values.password)){
-        errors.password="Password format is wrong"
-    }
+//     if(!values.password){
+//       errors.password="Required"
+//     }else if(!/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/.test(values.password)){
+//         errors.password="Password format is wrong"
+//     }
 
-    return errors
-  }
+//     return errors
+//   }
+
+const validationSchema=Yup.object({
+    email:Yup.string()
+    .required('Required !')
+    .email("Not a valid email"),
+    password:Yup.string()
+    .required('Required !')
+    .min(8, 'Password must be at least 8 characters')
+    .matches(/[a-z]/, 'Password must contain at least one lowercase letter')
+    .matches(/[A-Z]/, 'Password must contain at least one uppercase letter')
+    .matches(/[0-9]/, 'Password must contain at least one number'),
+})
 
 const SignIn=()=>{
 
@@ -35,7 +47,8 @@ const SignIn=()=>{
     const formik=useFormik({
         initialValues,
         onSubmit,
-        validate
+        validationSchema,
+        // validate
     });
 
     return(

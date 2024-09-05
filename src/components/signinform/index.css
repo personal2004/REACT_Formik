@@ -1,0 +1,41 @@
+.SignIn_page{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.SignIn_page form{
+    width: 40vw;
+    height: 50vh;
+    border: 5px solid black;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: left;
+}
+.SignIn_page form label{
+    width: 5vw;
+}
+.SignIn_page form input{
+    width: 20vw;
+    height: 5vh;
+}
+.form-control{
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+}
+.form_submit_button{
+    width: fit-content;
+    padding: 10px;
+    color: white;
+    background-color: dodgerblue;
+    border-radius: 15px;
+}
+.Error{
+    color: red;
+    font-size:13px;
+}

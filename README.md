@@ -1,6 +1,11 @@
 # Getting Started with Create React App
 
 Formik-lib-preactice
+
+## Installations
+
+1. npm install formik
+
 ## Concepts
 
 1. useFormik hook

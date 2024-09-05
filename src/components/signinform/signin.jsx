@@ -1,15 +1,12 @@
 import './index.css';
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
 const initialValues={
     email:'',
     password:'',
 }
-
-const onSubmit=values=>{
-    console.log(values)
-  }
 
 // const validate=values=>{
 //     let errors={}
@@ -43,10 +40,12 @@ const validationSchema=Yup.object({
 
 const SignIn=()=>{
 
-
+    const navigate=useNavigate();
     const formik=useFormik({
         initialValues,
-        onSubmit,
+        onSubmit:(values)=>{
+         navigate('/youtube')
+        },
         validationSchema,
         // validate
     });

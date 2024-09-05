@@ -16,6 +16,8 @@ Formik-lib-preactice
   * Validate function
   * ValidationSchema object with yue lib
   * formik.errors and formik.touched
+  * Reducing boilerPlate
+    - ...formik.getFieldProps('nameofField')
 
 3. Formik Components
   * Formik

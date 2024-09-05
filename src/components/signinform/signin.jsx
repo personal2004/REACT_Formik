@@ -63,9 +63,10 @@ const SignIn=()=>{
                 type="email"
                 name='email'
                 autoComplete='email'
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-                value={formik.values.email}
+                // onChange={formik.handleChange}
+                // onBlur={formik.handleBlur}
+                // value={formik.values.email}
+                {...formik.getFieldProps('email')}
                 />
                 {formik.touched.email && formik.errors.email ? <div className='Error'>{formik.errors.email}</div>:null}</div>
             </div>

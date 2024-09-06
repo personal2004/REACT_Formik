@@ -56,7 +56,22 @@ const validateEmail = (value) => {
   }
   return error;
 };
-<Field name="email" validate={validateEmail}>
+<Field name="email" validate={validateEmail}> 
+```
 
+# Manually Triggering Validation
+
+* To manually trigger validation in Formik, we use validateForm() and set setFieldTouched(field, true, true) to mark fields as touched. This ensures both field and form-level validations run correctly and the sample given below
+
+``` jsx
+// Trigger validation for a specific field
+formik.setFieldTouched('fieldName', true, true);
+formik.validateField('fieldName');
+
+// Trigger validation for the entire form
+formik.setTouched({ ...formik.touched, fieldName: true });
+formik.validateForm();
+
+```
 # Usage
 npm start

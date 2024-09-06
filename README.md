@@ -30,19 +30,19 @@ Formik-lib-preactice
   * FastField
      - FastField in Formik is an optimized version of Field, designed for large forms or expensive validations. It minimizes re-renders by updating only when its specific state changes
 
-## Notes
+# Notes
 
-# Top-level-validation
+## Top-level-validation
 
 The validate function in Formik runs during:
 
 1. Form submission.
 2. Field value changes.
-3. Field blur events1.
+3. Field blur events.
 
 * To prevent validation on submit, use the $$\color{red}{validateOnSubmit}$$ prop or the $$\color{red}{validateOnBlur}$$ prop or the $$\color{red}{validateOnChange}$$ prop set to false. Formik’s submit function won’t execute if there are validation errors
 
-# Field-Level-Validation
+## Field-Level-Validation
 
 * Field-level validation is useful when you need to validate individual fields independently. This can help improve performance and user experience by providing immediate feedback as users interact with each field and below is the example
 
@@ -59,7 +59,7 @@ const validateEmail = (value) => {
 <Field name="email" validate={validateEmail}> 
 ```
 
-# Manually Triggering Validation
+## Manually Triggering Validation
 
 * To manually trigger validation in Formik, we use validateForm() and set setFieldTouched(field, true, true) to mark fields as touched. This ensures both field and form-level validations run correctly and the sample given below
 
@@ -73,5 +73,29 @@ formik.setTouched({ ...formik.touched, fieldName: true });
 formik.validateForm();
 
 ```
+# Button Disable
+
+## Simple Validation form
+
+ * validateOnMount use to check error on initial 
+ * formik props used
+   - isVisible => It is linked to error and It is Read-Only
+
+## Comples Validation form
+
+  * formik props used
+  - dirty =>It only turn true when form is changed from initial stage
+  - isVisible => It is linked to error and It is Read-Only
+ ```jsx
+   <button type='submit' disabled={!formik.dirty && formik.isValid}>Submit</button>
+ ```
+## To disable button still backgroung operation complete i.e.. hit the api
+
+  ``` jsx
+  const onSubmit=(values,onSubmitProps)=>{
+    onSubmitProps.setSubmitting(false)
+  }
+  <button type='submit' disabled={!formik.isValid || formik.isSubmitting}>Submit</button>
+  ```
 # Usage
 npm start

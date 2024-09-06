@@ -9,7 +9,11 @@ const YoutubeForm=()=>{
     email:'',
     channel:'',
     comment:'',
-    address:''
+    address:'',
+    socia:{
+      facebook:'',
+      twitter:'',
+    }
   }
   const validationSchema=Yup.object({
     name:Yup.string().required("Required!"),
@@ -72,6 +76,13 @@ return(
             }
           </Field>     
         </div>
+        
+        <div className="YoutubeForm-contrl">
+          <label htmlFor="facebook">FaceBook</label>
+          <Field type='text' id='facebook' name='social.facebook' placeholder="Enter Facebook Account "/>
+          <ErrorMessage name="social.facebook" component={TextError}/>
+        </div>
+
         <button className='form_submit_button' type='submit'>Submit</button>
     </div>
 

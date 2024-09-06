@@ -1,17 +1,18 @@
 .youtube_form{
  width:100vw;
- height: 100vh;
  display: flex;
  align-items: center;
  justify-content: center;
+ overflow: scroll;
+
 }
 .youtube_form_content{
  width: 30vw;
- height: 100vh;
  box-shadow: inset 0 0 3px 5px #F3F3F3;
  display: flex;
  flex-direction: column;
  align-items: center;
+ gap: 1vh;
  justify-content: space-around;
 }
 .YoutubeForm-contrl label{

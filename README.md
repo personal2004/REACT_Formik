@@ -25,3 +25,5 @@ Formik-lib-preactice
   * Form
   * Field
   * ErrorMessage
+  * FieldArray
+     - fieldArrayProps

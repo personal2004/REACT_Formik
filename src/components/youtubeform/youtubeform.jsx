@@ -1,4 +1,4 @@
-import { Field, Formik } from "formik";
+import { ErrorMessage, Field, Formik } from "formik";
 import * as Yup from 'yup';
 
 const YoutubeForm=()=>{
@@ -24,16 +24,19 @@ return(
         <div className="YoutubeForm-contrl">
         <label htmlFor="name">Name</label>
         <Field type='text' id='name' name="name"/>
+        <ErrorMessage name="name"/>
         </div>
 
         <div className="YoutubeForm-contrl">
         <label htmlFor="email">Email</label>
         <Field type="email" id='email' name="email"/>
+        <ErrorMessage name="name"/>
         </div>
 
         <div className="YoutubeForm-contrl">
         <label htmlFor="channel">Channel</label>
         <Field type='text' id='channel' name='channel'/>
+        <ErrorMessage name="name"/>
         </div>
         </>
   </Formik>

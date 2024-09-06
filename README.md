@@ -29,6 +29,7 @@ Formik-lib-preactice
      - fieldArrayProps
   * FastField
      - FastField in Formik is an optimized version of Field, designed for large forms or expensive validations. It minimizes re-renders by updating only when its specific state changes
+
 # Notes
 The validate function in Formik runs during:
 
@@ -36,4 +37,7 @@ The validate function in Formik runs during:
 2. Field value changes.
 3. Field blur events1.
 
-* To prevent validation on submit, use $$\color{red}{validateOnSubmit&nbsp;prop&nbsp; or&nbsp;  validateOnBlur&nbsp; prop&nbsp; or&nbsp; validateOnChange&nbsp; prop}$$ set to false. Formik’s submit function won’t execute if there are validation errors
+* To prevent validation on submit, use the $$\color{red}{validateOnSubmit}$$ prop or the $$\color{red}{validateOnBlur}$$ prop or the $$\color{red}{validateOnChange}$$ prop set to $$\color{false}$$. Formik’s submit function won’t execute if there are validation errors
+
+# Usage
+npm start

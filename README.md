@@ -50,7 +50,17 @@ Formik-lib-preactice
          onSubmitPropps.resetForm()
         }
   ```
-  
+6. Reusable Formik Controls
+   * FormikContainer component
+   * FormikControl component
+   * Input
+   * TextArea
+   * Select
+   * RadioButtons
+   * Checkboxes
+   * DatePicker
+   * Registration,Login and Course Enrollement 
+   * UI Component library 
 
 # Notes
 

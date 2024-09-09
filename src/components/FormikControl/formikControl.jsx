@@ -5,7 +5,7 @@ import RadioButtons from "../Radio/radio"
 import Select from "../Select/select"
 import TextArea from "../TextArea/textArea"
 
-const FormikControl=(props,)=>{
+const FormikControl=(props)=>{
  const {control,...rest}=props 
  switch(control){
     case 'input': 

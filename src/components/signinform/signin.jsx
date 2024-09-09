@@ -1,11 +1,16 @@
 import './index.css';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import * as Yup from 'yup';
 
 const initialValues={
     email:'',
     password:'',
+}
+const savedvalue={
+    email:'koedung@gmail.com',
+    password:'T hopper#489u3n4',
 }
 
 // const validate=values=>{
@@ -26,6 +31,7 @@ const initialValues={
 //     return errors
 //   }
 
+
 const validationSchema=Yup.object({
     email:Yup.string()
     .required('Required !')
@@ -41,12 +47,14 @@ const validationSchema=Yup.object({
 const SignIn=()=>{
 
     const navigate=useNavigate();
+    const [FormValues,setFormValues]=useState(null)
     const formik=useFormik({
-        initialValues,
+        initialValues:(FormValues || initialValues ),
         onSubmit:(values)=>{
          navigate('/youtube')
         },
         validationSchema,
+        enableReinitialize:true,
         // validate
     });
 
@@ -85,6 +93,7 @@ const SignIn=()=>{
                 {formik.touched.password && formik.errors.password ?<div className='Error'>{formik.errors.password}</div>:null}
                 </div>
             </div>
+            <button type='button' onClick={()=>(setFormValues(savedvalue))}>Load Data</button>
             <button className='form_submit_button' type='submit'>Submit</button>
         </form>
         </div>

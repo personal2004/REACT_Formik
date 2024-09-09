@@ -1,4 +1,5 @@
 import { ErrorMessage, Field, FieldArray, Formik } from "formik";
+import { useState } from "react";
 import * as Yup from 'yup';
 import "./index.css";
 import TextError from "./error";
@@ -16,7 +17,7 @@ const YoutubeForm=()=>{
       twitter:'',
     },
     checkbox:['',''],
-    phnumbers:['']
+    // phnumbers:['']
   }
 
   const validationSchema=Yup.object({
@@ -31,18 +32,33 @@ const YoutubeForm=()=>{
 const onSubmit=(values)=>{
 
 }
+const savedvalue={
+  name:'ramya',
+  email:'manickkowsalya@hmail.com',
+  channel:'I have@2dog',
+  comment:'its good to usw',
+  address:'',
+  socia:{
+    facebook:'',
+    twitter:'',
+  },
+  checkbox:['',''],
+  
+}
+const [FormValues,setFormValues]=useState(null)
 return(
   <div className="youtube_form">
   <Formik 
-  initialValues={initialValues} 
+  initialValues={FormValues || initialValues} 
   validationSchema={validationSchema} 
   onSubmit={onSubmit} 
-  validateOnMount>
+  validateOnMount
+  enableReinitialize >
     {
       (formik)=>{
         return(
           <div className="youtube_form_content">
-
+           
           <div className="YoutubeForm-contrl">
             <label htmlFor="name">Name</label>
             <Field type='text' id='name' name="name" placeholder='Enter your name'/>
@@ -85,7 +101,7 @@ return(
             <div className="YoutubeForm-contrl">
             <label htmlFor="phnumbers">Add Phone Number</label>
             {/* To dynamically add phone number in array use FieldArray */}
-            <FieldArray id="phnumbers" name="phnumbers">
+            {/* <FieldArray id="phnumbers" name="phnumbers">
              {
                 (fieldArrayProps)=>{
                       const {form,remove,push}=fieldArrayProps;
@@ -104,7 +120,7 @@ return(
                       );
                 }
              }
-            </FieldArray>
+            </FieldArray> */}
             </div>
   
            <div className="YoutubeForm-contrl">
@@ -125,7 +141,7 @@ return(
               }
             </Field>     
           </div>
-  
+          <button type='button' onClick={()=>(setFormValues(savedvalue))}>Load Data</button>
           <button className='form_submit_button' type='submit' disabled={formik.isValid}>Submit</button>
       </div>
         );

@@ -30,6 +30,14 @@ Formik-lib-preactice
   * FastField
      - FastField in Formik is an optimized version of Field, designed for large forms or expensive validations. It minimizes re-renders by updating only when its specific state changes
 
+4. Edit Function
+   * onclick of edit button take value from api and it is stored in useState in common to both page and set in form {()=>setFormValues(savedvalues)} 
+   * on Formik Component use
+     - initialValues={FormValues || initialValues} => here FormValues from api will be null till values from api and 
+     if it not null set FormValues otherwise or set initialValues.
+     - enableReinitialize
+
+
 # Notes
 
 ## Top-level-validation
@@ -79,7 +87,7 @@ formik.validateForm();
 
  * validateOnMount use to check error on initial 
  * formik props used
-   - isVisible => It is linked to error and It is Read-Only
+   - isValid => It is linked to error and It is Read-Only
 
 ## Comples Validation form
 

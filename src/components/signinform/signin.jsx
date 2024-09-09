@@ -50,7 +50,9 @@ const SignIn=()=>{
     const [FormValues,setFormValues]=useState(null)
     const formik=useFormik({
         initialValues:(FormValues || initialValues ),
-        onSubmit:(values)=>{
+        onSubmit:(values,onSubmitPropps)=>{
+         onSubmitPropps.setSubmitting(false)
+         onSubmitPropps.resetForm()
          navigate('/youtube')
         },
         validationSchema,
@@ -94,6 +96,7 @@ const SignIn=()=>{
                 </div>
             </div>
             <button type='button' onClick={()=>(setFormValues(savedvalue))}>Load Data</button>
+            <button type='reset'onClick={() => formik.resetForm()}>Reset</button>
             <button className='form_submit_button' type='submit'>Submit</button>
         </form>
         </div>

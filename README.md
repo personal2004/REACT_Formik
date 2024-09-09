@@ -11,6 +11,7 @@ Formik-lib-preactice
 ## Concepts
 
 1. useFormik hook
+
 2. Managing form state,handling form submission and form validation
   * initialValues object + formik.handleChange
   * onSubmit method + formik.handleSubmit
@@ -36,7 +37,20 @@ Formik-lib-preactice
      - initialValues={FormValues || initialValues} => here FormValues from api will be null till values from api and 
      if it not null set FormValues otherwise or set initialValues.
      - enableReinitialize
+       * on useFormik hook use
+         -enableReinitialize:true
 
+5. Reset Function
+  * onclick of Reset button with type as reset use onClick={() => formik.resetForm()}
+  * After form submission need to reset meanse use on OnSubmit function
+
+  ```jsx
+      onSubmit=(values,onSubmitPropps)=>{
+         onSubmitPropps.setSubmitting(false)
+         onSubmitPropps.resetForm()
+        }
+  ```
+  
 
 # Notes
 
